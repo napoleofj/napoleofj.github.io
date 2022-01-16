@@ -194,10 +194,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-01-16 15:30:35 / 修改时间：16:17:16" itemprop="dateCreated datePublished" datetime="2022-01-16T15:30:35+08:00">2022-01-16</time>
+              <time title="创建时间：2022-01-16 15:30:35" itemprop="dateCreated datePublished" datetime="2022-01-16T15:30:35+08:00">2022-01-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-17 00:26:59" itemprop="dateModified" datetime="2022-01-17T00:26:59+08:00">2022-01-17</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -219,7 +225,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h3><p>注解</p>
+          <h3 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h3><p>注解<br>jdk5.0开始增加了对注解的支持 就是元数据<br>就是代码的特殊标记，在不改变原逻辑的情况下，在原文件中嵌入一些补充信息<br>应用场景</p>
+<ul>
+<li>文档、编译、运行、配置切面 避免代码和xml配置</li>
+<li>JPA、spring2.5 Hibernate3.x后基于注解（servelt3.0 @WebServelet(“/login”)避免配置web.xml spring配置事物 Junit @Test）</li>
+<li>框架=注解+反射+设计模式</li>
+</ul>
+<p>@Override 重写<br>@Deprecated 过时<br>@SuppressWarnings 抑制告警</p>
+<p>自定义注解<br>@interface<br>反射实现注解具体功能（信息处理流程）<br>元注解 4个 修饰注解的注解<br>@Retention指定生命周期 [source class runtime]<br>@Target 指定元素类型 无指定 所有都可以用<br>@Documented 被javadoc提取文档 默认不包含注解<br>@Inherited 被修饰的类的注解具有继承性</p>
+<p>反射获取注解信息</p>
 <h3 id="JVM虚拟机"><a href="#JVM虚拟机" class="headerlink" title="JVM虚拟机"></a>JVM虚拟机</h3><p>类加载</p>
 <p>字节码执行机制</p>
 <p>JVM内存模型</p>
@@ -249,6 +263,13 @@
 
     数据库框架
 </code></pre>
+<h3 id="企业级开源项目推荐-github"><a href="#企业级开源项目推荐-github" class="headerlink" title="企业级开源项目推荐 github"></a>企业级开源项目推荐 github</h3><ul>
+<li>halo   [java博客系统]</li>
+<li>hutool [java工具集]</li>
+<li>piggymertics [springboot+springcloud+docker落地CICD]</li>
+<li>hanLP [自然语言处理java实现]</li>
+<li>Springboot in action [codesheep]</li>
+</ul>
 
       
     </div>
