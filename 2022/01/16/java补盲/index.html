@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"napoleofj.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="注解JVM虚拟机类加载 字节码执行机制 JVM内存模型 GC垃圾回收 JVM 性能监控与故障定位 JVM调优 多线程并发并发编程基础 线程池 锁 并发容器 原子类 JUC并发工具类 数据结构计算机网络SQL&#x2F;数据库操作系统设计模式单例工厂 代理 策略 模版方法 观察者适配器责任链建造者 应用框架spring boot 自动配置 开箱即用        整合web        整合数据库">
+  <meta name="description" content="java基础注解 JVM虚拟机类加载 字节码执行机制 JVM内存模型 GC垃圾回收 JVM 性能监控与故障定位 JVM调优 多线程并发并发编程基础 线程池 锁 并发容器 原子类 JUC并发工具类 数据结构计算机网络SQL&#x2F;数据库操作系统设计模式单例工厂 代理 策略 模版方法 观察者适配器责任链建造者 应用框架spring boot 自动配置 开箱即用        整合web        整合数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java补盲">
-<meta property="og:url" content="https://napoleofj.github.io/2022/01/16/java%E8%A1%A5%E7%9B%B2-%E6%B3%A8%E8%A7%A3/index.html">
+<meta property="og:url" content="https://napoleofj.github.io/2022/01/16/java%E8%A1%A5%E7%9B%B2/index.html">
 <meta property="og:site_name" content="Alexander">
-<meta property="og:description" content="注解JVM虚拟机类加载 字节码执行机制 JVM内存模型 GC垃圾回收 JVM 性能监控与故障定位 JVM调优 多线程并发并发编程基础 线程池 锁 并发容器 原子类 JUC并发工具类 数据结构计算机网络SQL&#x2F;数据库操作系统设计模式单例工厂 代理 策略 模版方法 观察者适配器责任链建造者 应用框架spring boot 自动配置 开箱即用        整合web        整合数据库">
+<meta property="og:description" content="java基础注解 JVM虚拟机类加载 字节码执行机制 JVM内存模型 GC垃圾回收 JVM 性能监控与故障定位 JVM调优 多线程并发并发编程基础 线程池 锁 并发容器 原子类 JUC并发工具类 数据结构计算机网络SQL&#x2F;数据库操作系统设计模式单例工厂 代理 策略 模版方法 观察者适配器责任链建造者 应用框架spring boot 自动配置 开箱即用        整合web        整合数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-16T07:30:35.000Z">
-<meta property="article:modified_time" content="2022-01-16T08:11:31.393Z">
+<meta property="article:modified_time" content="2022-01-16T08:17:16.053Z">
 <meta property="article:author" content="Alexander Wang">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://napoleofj.github.io/2022/01/16/java%E8%A1%A5%E7%9B%B2-%E6%B3%A8%E8%A7%A3/">
+<link rel="canonical" href="https://napoleofj.github.io/2022/01/16/java%E8%A1%A5%E7%9B%B2/">
 
 
 <script id="page-configurations">
@@ -174,7 +174,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://napoleofj.github.io/2022/01/16/java%E8%A1%A5%E7%9B%B2-%E6%B3%A8%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="https://napoleofj.github.io/2022/01/16/java%E8%A1%A5%E7%9B%B2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/v_avatar.jpeg">
@@ -198,7 +198,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-01-16 15:30:35 / 修改时间：16:11:31" itemprop="dateCreated datePublished" datetime="2022-01-16T15:30:35+08:00">2022-01-16</time>
+              <time title="创建时间：2022-01-16 15:30:35 / 修改时间：16:17:16" itemprop="dateCreated datePublished" datetime="2022-01-16T15:30:35+08:00">2022-01-16</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -221,7 +221,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h3 id="JVM虚拟机"><a href="#JVM虚拟机" class="headerlink" title="JVM虚拟机"></a>JVM虚拟机</h3><p>类加载</p>
+        <h3 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h3><p>注解</p>
+<h3 id="JVM虚拟机"><a href="#JVM虚拟机" class="headerlink" title="JVM虚拟机"></a>JVM虚拟机</h3><p>类加载</p>
 <p>字节码执行机制</p>
 <p>JVM内存模型</p>
 <p>GC垃圾回收</p>
@@ -334,7 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">注解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">1.1.</span> <span class="nav-text">JVM虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91"><span class="nav-number">1.2.</span> <span class="nav-text">多线程并发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.3.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-number">1.4.</span> <span class="nav-text">计算机网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.5.</span> <span class="nav-text">SQL&#x2F;数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.6.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.7.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E6%A1%86%E6%9E%B6"><span class="nav-number">1.8.</span> <span class="nav-text">应用框架</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">java基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">JVM虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91"><span class="nav-number">3.</span> <span class="nav-text">多线程并发</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">数据结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C"><span class="nav-number">5.</span> <span class="nav-text">计算机网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL-%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">6.</span> <span class="nav-text">SQL&#x2F;数据库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F"><span class="nav-number">7.</span> <span class="nav-text">操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="nav-number">8.</span> <span class="nav-text">设计模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E6%A1%86%E6%9E%B6"><span class="nav-number">9.</span> <span class="nav-text">应用框架</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -461,8 +462,8 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://napoleofj.github.io/2022/01/16/java%E8%A1%A5%E7%9B%B2-%E6%B3%A8%E8%A7%A3/";
-    this.page.identifier = "2022/01/16/java补盲-注解/";
+    this.page.url = "https://napoleofj.github.io/2022/01/16/java%E8%A1%A5%E7%9B%B2/";
+    this.page.identifier = "2022/01/16/java补盲/";
     this.page.title = "java补盲";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
